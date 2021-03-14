@@ -14,6 +14,9 @@ func IndexHandler(c *gin.Context) {
 			"avatar": gin.H{
 				"href": "/avatar/{account_id}/{?width,height}",
 			},
+			"self": gin.H{
+				"href": "/",
+			},
 		},
 		"stellar_identicon_api_source_code": "https://github.com/overcat/stellar-identicon-api",
 		"stellar_identicon_go_source_code":  "https://github.com/overcat/stellar-identicon-go",
@@ -58,8 +61,8 @@ func AvatarHandler(c *gin.Context) {
 		}
 		height = height_
 	}
-	img, err2 := identicon.Generate(accountId, width, height)
-	if err2 != nil {
+	img, err := identicon.Generate(accountId, width, height)
+	if err != nil {
 		c.JSON(400, gin.H{
 			"code":    "INVALID_STELLAR_ID",
 			"message": "invalid stellar id",
@@ -73,9 +76,9 @@ func AvatarHandler(c *gin.Context) {
 
 func main() {
 	r := gin.Default()
+	r.Use(cors.Default())
 	r.GET("/", IndexHandler)
 	r.GET("/avatar/:account_id", AvatarHandler)
 	r.NoRoute(NoRouterHandler)
-	r.Use(cors.Default())
 	r.Run()
 }
