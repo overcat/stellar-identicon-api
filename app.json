@@ -1,0 +1,21 @@
+{
+  "name": "Stellar Identicon API",
+  "description": "Generate identicons online",
+  "keywords": [
+    "stellar",
+    "sep-0033"
+  ],
+  "website": "https://github.com/overcat/stellar-identicon-api",
+  "repository": "https://github.com/overcat/stellar-identicon-api",
+  "success_url": "/",
+  "env": {
+    "GOVERSION": {
+      "description": "Go Version.",
+      "value": "1.15"
+    },
+    "GIN_MODE": {
+      "description": "gin mode.",
+      "value": "release"
+    }
+  }
+}
