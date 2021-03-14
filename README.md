@@ -1,12 +1,10 @@
 # Stellar Identicon Generate API
 
-
-The API is based on [stellar-identicon-go](https://github.com/overcat/stellar-identicon-go/),
-you can use the API to generate identicons online.
-
-https://stellar-identicon.herokuapp.com/
+The API is based on [stellar-identicon-go](https://github.com/StellarCN/stellar-identicon-go/), you can use the API to
+generate identicons online.
 
 ## API
+
 ```JSON
 {
   "_link": {
