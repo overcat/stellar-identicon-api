@@ -1,0 +1,1 @@
+web: stellar-identicon-api
